@@ -1,4 +1,6 @@
-$lightCoral: #F08080;
+
+
+$lightColor: #f08080;
 $black: #333;
 $white: #fff;
 
@@ -9,14 +11,13 @@ $breakpoints: (
   md: 767px,
   lg: 1024px,
   xl: 1280px,
+  xxl: 1440px,
 );
 
 // Respond above.
 @mixin above($breakpoint) {
-
   // If the breakpoint exists in the map.
   @if map-has-key($breakpoints, $breakpoint) {
-
     // Get the breakpoint value.
     $breakpoint-value: map-get($breakpoints, $breakpoint);
 
@@ -25,182 +26,299 @@ $breakpoints: (
       @content;
     }
 
-  // If the breakpoint doesn't exist in the map.
+    // If the breakpoint doesn't exist in the map.
   } @else {
+    // Log a warning.
+    @warn 'Invalid breakpoint: #{$breakpoint}.';
+  }
+}
 
+// Respond below.
+@mixin below($breakpoint) {
+  // If the breakpoint exists in the map.
+  @if map-has-key($breakpoints, $breakpoint) {
+    // Get the breakpoint value.
+    $breakpoint-value: map-get($breakpoints, $breakpoint);
+
+    // Write the media query.
+    @media (max-width: ($breakpoint-value - 1)) {
+      @content;
+    }
+
+    // If the breakpoint doesn't exist in the map.
+  } @else {
     // Log a warning.
     @warn 'Invalid breakpoint: #{$breakpoint}.';
   }
 }
 
 
+// general image related classes
+.imgResponsive {
+  max-width: 100%;
+  height: auto;
+}
+.imgFullWidth {
+  width: 100%;
+  height: 100%;
+
+  object-fit: cover;
+  object-position: center center;
+}
+
+
 * {
-  box-sizing:border-box;
+  box-sizing: border-box;
 }
 
 body {
-  background-color: #eee;
-  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  padding: 0;
+  margin: 120px 0;
   overflow-x: hidden;
-  padding:0;
-  margin:60px 0;
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  background-color: #eee;
 }
 
-.content {
-  position: absolute;
-  top: 600px;
-  background-color: #fefefe;
-  padding: 50px;
-  margin: 20px;
-  box-shadow: inset 1px 1px 11px 0px black;
-}
+.hugeTitle {
+  width: 100%;
+  margin: 48px 0;
+  font-size: 32px;
+  color: $lightColor;
+  text-align: center;
 
+  @include above(md) {
+    margin: 144px 0;
+    font-size: 64px;
+  }
+}
 
 // mainConversion
 .mainConversion {
-  margin-top: 60px;
+  display: grid;
   width: 100vw;
   height: auto;
-  display: grid;
+  padding: 0 24px;
+  margin-top: 60px;
+
   grid-template-columns: repeat(12, 1fr);
   grid-auto-flow: dense;
   grid-gap: auto;
-  padding:0 24px;
-  @include above(xl) { 
-    padding:0;
+  align-items: center;
+  @include above(lg) {
+    padding: 0;
+
     grid-gap: 32px;
   }
 
-  
-  &:first-child{
-     margin-top: 0;
-  }
 
-  // // mainConversion__column
-  &__column {
-    padding: 48px 0;
-    @include above(lg) {
-      padding: 96px 0;
-    }
-
-
-    // mainConversion__column:first-child
-    &:first-child {
-      grid-column:1/13;
-
-      @include above(lg) {
-        grid-column:1/4;
-      }
-      @include above(xl) {
-        grid-column: 3/6;
-      }
-    }
-
-    // mainConversion__column:last-child
-    &:last-child {
-      grid-column:1/13;
-
-      @include above(lg) {
-        grid-column:5/13;
-      }
-
-      @include above(xl) {
-        grid-column: 7/13;
-      }
-    }
-
-    // mainConversion__column--reverse
-    &--reverse {
-
-      // mainConversion__column--reverse:first-child
-      &:first-child {
-        grid-column:1/13;
-
-        @include above(lg) {
-          grid-column:6/13;
-        }
-  
-        @include above(xl) {
-          grid-column: 7/11;
-        }
-      }
-
-      // mainConversion__column--reverse:last-child
-      &:last-child {
-        grid-column:1/13;
-
-        @include above(lg) {
-          grid-column:1/5;
-        }
-        @include above(xl) {
-          grid-column: 3/7;
-        }
-      }
-    }
-  }
-
-  // mainConversion__title
-  &__title {
-    font-size: 24px;
+  &:first-child {
     margin-top: 0;
+  }
+
+  &__content {
+    grid-column: 1 / 13;
     @include above(lg) {
-      font-size: 32px;
+      grid-column: 3 / 6;
     }
-    // mainConversion__title--lightCoral
-    &--lightCoral{
-      color: $lightCoral;
+  }
+  &__image {
+    margin-top: 48px;
+
+    grid-column: 1 / 13;
+    @include above(lg) {
+      margin-top: 0;
+
+      grid-column: 7 / 13;
     }
   }
 
-  // mainConversion__text
-  &__text {
-    font-size: 14px;
-    line-height: 24px;
-    font-weight: 300;
-    color: $black;
-    @include above(lg) {
-      font-size: 16px;
+  &--reverse {
+    .mainConversion__content {
+      grid-column: 1 / 13;
+      @include above(lg) {
+        grid-column: 6 / 11;
+      }
     }
-  }
-
-  // mainConversion__cta
-  &__cta {
-    height: 44px;
-    padding: 0 32px;
-    margin-top: 24px;
-    background: $black;
-    color: $white;
-    border: 1px solid $black;
-    outline: 0;
-    transition: 0.3s ease-in-out;
-
-    // mainConversion__cta:hover
-    &:hover{
-      background: $white;
-      border: 1px solid $white;
-      color: $black;
-    }
-
-    // mainConversion__cta--lightCoral
-    &--lightCoral{
-      background: $lightCoral;
-      border: 1px solid $lightCoral;
-      &:hover {
-        color: $lightCoral;
+    .mainConversion__image {
+      grid-column: 1 / 13;
+      @include above(lg) {
+        grid-column: 3 / 6;
       }
     }
   }
+
+  // .content
+  .content {
+    // mainConversion__title
+    &__title {
+      margin-top: 0;
+      font-size: 24px;
+
+      @include above(lg) {
+        font-size: 32px;
+      }
+
+      // mainConversion__title--lightColor
+      &--lightColor {
+        color: $lightColor;
+      }
+    }
+
+    // mainConversion__text
+    &__text {
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 24px;
+      color: $black;
+
+      @include above(lg) {
+        font-size: 16px;
+      }
+    }
+
+    // mainConversion__cta
+    &__cta {
+      height: 44px;
+      padding: 0 32px;
+      margin-top: 24px;
+      color: $white;
+      background: $black;
+      border: 1px solid $black;
+      outline: 0;
+      transition: .3s ease-in-out;
+
+      // mainConversion__cta:hover
+      &:hover {
+        color: $black;
+        background: $white;
+        border: 1px solid $white;
+      }
+
+      // mainConversion__cta--lightColor
+      &--lightColor {
+        background: $lightColor;
+        border: 1px solid $lightColor;
+        &:hover {
+          color: $lightColor;
+        }
+      }
+    }
+  }
+
 
   // mainConversion__image
   &__image {
-    height: auto;
-    min-height:240px;
     width: 100%;
-    background: url('https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-682481.jpg') center/cover no-repeat;
-    @include above(xl) {
-      height: auto;
-      min-height:auto;
-     }
+    height: auto;
   }
 }
 
+
+/* Flexbox Section ( called section just for testing ) */
+.section {
+  display: flex;
+  padding: 0 24px;
+  margin-top: 60px;
+  flex-direction: row;
+
+  align-items: center;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+  @include above(sm) {
+    padding: 0 48px;
+  }
+  @include above(md) {
+    padding: 0 72px;
+  }
+  @include above(xxl) {
+    padding: 0 0 0 300px;
+  }
+  &:first-child {
+    margin-top: 0;
+  }
+
+  &__content {
+    flex-basis: 100%;
+    @include above(lg) {
+      padding: 0 10% 0 0;
+
+      flex-basis: 50%;
+    }
+  }
+  &__image {
+    margin-top: 48px;
+
+    flex-basis: 100%;
+    @include above(lg) {
+      margin-top: 0;
+
+      flex-basis: 50%;
+    }
+  }
+
+  &--reverse {
+    flex-direction: row-reverse;
+    .section__content {
+      @include above(lg) {
+        padding: 0 0 0 24px;
+      }
+    }
+    .section__image {
+      flex-basis: 100%;
+      @include above(lg) {
+        flex-basis: 30%;
+      }
+    }
+  }
+
+  .content {
+    &__title {
+      margin-top: 0;
+      font-size: 24px;
+
+      @include above(lg) {
+        font-size: 32px;
+      }
+
+      &--lightColor {
+        color: $lightColor;
+      }
+    }
+
+    &__text {
+      font-size: 14px;
+      font-weight: 300;
+      line-height: 24px;
+      color: $black;
+
+      @include above(lg) {
+        font-size: 16px;
+      }
+    }
+
+    &__cta {
+      height: 44px;
+      padding: 0 32px;
+      margin-top: 24px;
+      color: $white;
+      background: $black;
+      border: 1px solid $black;
+      outline: 0;
+      transition: .3s ease-in-out;
+
+      &:hover {
+        color: $black;
+        background: $white;
+        border: 1px solid $white;
+      }
+
+      &--lightColor {
+        background: $lightColor;
+        border: 1px solid $lightColor;
+        &:hover {
+          color: $lightColor;
+        }
+      }
+    }
+  }
+}
