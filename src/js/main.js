@@ -1,15 +1,51 @@
-// import {animatedScrollTo} from './es6-scroll-to.js';
+// Plain Javascript
+var toggleAll = document.querySelectorAll('.mainConversion__toggled');
 
-// document.querySelector('.title').innerHTML = 'Great success!'
-// document.querySelector('.text').innerHTML = 'Javascript is working!'
+document.querySelectorAll('.mainConversion').forEach(element => {
+    var button = element.querySelector('button');
+    var toggle = element.querySelector('.mainConversion__toggled');
 
-// animatedScrollTo(500);
+    button.addEventListener('click', () => {
+        let color = window.getComputedStyle(button, null).getPropertyValue("background-color");
+        toggleAll.forEach(info => {
+            if(toggle !== info){
+                info.classList.add('off');
+            }
+        });  
+        toggle.style.backgroundColor = color;
+        toggle.classList.toggle('off');
+    });
+});
 
-var toggledHeight = document.getElementById('howBig').offsetHeight;
-var toggle = document.getElementById('howBig');
+
+// // Plain Javascript attempt to change color
+// var toggleAll = document.querySelectorAll('.mainConversion__toggled');
+
+// document.querySelectorAll('.mainConversion').forEach(element => {
+//     var button = element.querySelector('button');
+//     var toggle = element.querySelector('.mainConversion__toggled');
+//     var toggleBefore = element.querySelector('.toggled__info');
+
+//     button.addEventListener('click', () => {
+//         let color = window.getComputedStyle(button, null).getPropertyValue("background-color");
+//         toggleAll.forEach(info => {
+//             if(toggle !== info){
+//                 info.classList.add('off');
+//             }
+//         });  
+//         var pseudoElementContent = window.getComputedStyle(toggleBefore, ':before')
+//   .getPropertyValue('border-bottom');
+//   console.log(pseudoElementContent);
+//         toggle.style.backgroundColor = color;
+//         toggle.classList.toggle('off');
+//     });
+// });
 
 
-var mainC1 = document.getElementById('mainC1');
 
-mainC1.style.cursor = 'pointer';
-mainC1.onclick = () =>  toggle.classList.toggle('off');
+// Jquery
+// $('.mainConversion').click(function(){
+//     var others = $(this).siblings().find('.mainConversion__toggled');
+//     $(others).addClass('off');
+//     $(this).find('.mainConversion__toggled').toggleClass('off');
+// });
