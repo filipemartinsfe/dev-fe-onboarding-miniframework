@@ -139,35 +139,6 @@ body {
     grid-auto-flow: dense;
     grid-gap: auto;
     align-items: center;
-    background-color:#303C54;
-    position:relative;
-    &:before {
-      position: absolute;
-      width: 17%;
-      left: 0;
-      top: 0px;
-      border-top: 20px solid #eee;
-      border-right: 20px solid transparent;
-      display: block;
-      content: " ";
-      background: inherit;
-      z-index: 9;
-    }
-    &:after {
-      position: absolute;
-      left: 18%;
-      top: 0px;
-      right: 0;
-      border-top: 20px solid #eee;
-      border-left: 20px solid transparent;
-      display: block;
-      background-color: inherit;
-      content: " ";
-      z-index: 8;
-    }
-    & > .toggled__info {
-      background-color:inherit;
-    }
   }
 
   .toggled{
@@ -175,14 +146,25 @@ body {
     // transform:scaleY(1);
     // transform-origin:top;
     max-height:280px;
-    transition:all .20s linear, opacity .20s ease-in-out;
-    background-color: inherit;
+    transition:all .30s linear, opacity .45s ease-in-out;
+    background-color: #303C54;
     &__info {
-      padding:48px 0;
+      padding:24px 0;
       height:100%;
       grid-column:3/11;
       color:#fff;
       position:relative;
+      &:before {
+        position: absolute;
+        top: -20px;
+        left: 0;
+        content: '';
+        width: 0;
+        height: 0;
+        border-left: 20px solid transparent;
+        border-right: 20px solid transparent;
+        border-bottom: 20px solid #303C54;
+      }
     }
     &.off {
       min-height:0;

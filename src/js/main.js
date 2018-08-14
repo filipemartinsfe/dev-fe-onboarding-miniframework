@@ -6,13 +6,11 @@ document.querySelectorAll('.mainConversion').forEach(element => {
     var toggle = element.querySelector('.mainConversion__toggled');
 
     button.addEventListener('click', () => {
-        let color = window.getComputedStyle(button, null).getPropertyValue("background-color");
         toggleAll.forEach(info => {
             if(toggle !== info){
                 info.classList.add('off');
             }
         });  
-        toggle.style.backgroundColor = color;
         toggle.classList.toggle('off');
     });
 });
