@@ -9,45 +9,8 @@
   </head>
   <body>
 
-    <h1 class="hugeTitle"> FLEXBOX ATTEMPT</h1>
-
-    <div class="section">
-        <div class="section__content content">
-            <h1 class="content__title">A wonderful Serenity has taken possession</h1>
-            <p class="content__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            <button class="content__cta" type="button"> Link Button </button>
-        </div>
-        <div class="section__image">
-            <img class="imgFullWidth" src="https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-682481.jpg" alt="">
-        </div>
-    </div>
-
-    <div class="section">
-        <div class="section__content content">
-            <h1 class="content__title">A wonderful Serenity has taken possession</h1>
-            <p class="content__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            <button class="content__cta content__cta--lightColor" type="button"> Link Button </button>
-        </div>
-        <div class="section__image">
-            <img class="imgFullWidth" src="https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-682481.jpg" alt="">
-        </div>
-    </div>
-
-    <div class="section section--reverse">
-        <div class="section__content content">
-            <h1 class="content__title">A wonderful Serenity has taken possession</h1>
-            <p class="content__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            <button class="content__cta content__cta--lightColor" type="button"> Link Button </button>
-        </div>
-        <div class="section__image">
-            <img class="imgFullWidth" src="https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-682481.jpg" alt="">
-        </div>
-    </div>
-
-    <h1 class="hugeTitle"> GRID ATTEMPT</h1>
-
     <!-- 1st mainConversion -->
-    <div class="mainConversion grid">
+    <div class="mainConversion grid" id="mainC1" >
 
          <!-- content column  -->
         <div class="mainConversion__content content">
@@ -60,40 +23,13 @@
         <div class="mainConversion__image">
             <img class="imgFullWidth" src="https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-682481.jpg" alt="">
         </div>
-    </div>
-
-
-    <!-- 2nd mainConversion -->
-    <div class="mainConversion grid">
-
-            <!-- content column  -->
-           <div class="mainConversion__content content">
-               <h1 class="content__title">A wonderful Serenity has taken possession</h1>
-               <p class="content__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-               <button class="content__cta content__cta--lightColor " type="button"> Link Button </button>
-           </div>
-   
-           <!-- image column -->
-           <div class="mainConversion__image">
-               <img class="imgFullWidth" src="https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-682481.jpg" alt="">
-           </div>
-       </div>
-
-        <!-- 3rd mainConversion -->
-        <div class="mainConversion mainConversion--reverse grid">
-
-                <!-- content column  -->
-            <div class="mainConversion__content content">
-                <h1 class="content__title">A wonderful Serenity has taken possession</h1>
-                <p class="content__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                <button class="content__cta content__cta--lightColor " type="button"> Link Button </button>
-            </div>
-
-            <!-- image column -->
-            <div class="mainConversion__image">
-                <img class="imgFullWidth" src="https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-682481.jpg" alt="">
-            </div>
+        <!-- Toggled Content -->
+        <div class="mainConversion__toggled toggled" id="howBig">
+                <div class="toggled__info">
+                    Contact Us
+                </div>
         </div>
+    </div>
 
       <script type="module" src="js/main.js"></script>
   </body>

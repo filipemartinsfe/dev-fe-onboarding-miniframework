@@ -73,7 +73,7 @@ $breakpoints: (
 
 body {
   padding: 0;
-  margin: 120px 0;
+  margin: 0; 
   overflow-x: hidden;
   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   background-color: #eee;
@@ -129,6 +129,49 @@ body {
       margin-top: 0;
 
       grid-column: 7 / 13;
+    }
+  }
+
+  &__toggled {
+    grid-column:1/13;
+    display:grid;
+    grid-template-columns: repeat(12, 1fr);
+    grid-auto-flow: dense;
+    grid-gap: auto;
+    align-items: center;
+    background:#303C54;
+  }
+
+  .toggled{
+    min-height:280px;
+    transform:scaleY(1);
+    transform-origin:top;
+    -webkit-backface-visibility:hidden;
+    // max-height:280px;
+    transition:all .30s linear, opacity .45s ease-in-out;
+    &__info {
+      padding:24px 0;
+      height:100%;
+      grid-column:3/11;
+      color:#fff;
+      position:relative;
+      &:before {
+        position: absolute;
+        top: -20px;
+        left: 0;
+        content: '';
+        width: 0;
+        height: 0;
+        border-left: 20px solid transparent;
+        border-right: 20px solid transparent;
+        border-bottom: 20px solid #303C54;
+      }
+    }
+    &.off {
+      // min-height:0;
+      // max-height:0;
+      transform:scaleY(0);
+      opacity:0;
     }
   }
 
