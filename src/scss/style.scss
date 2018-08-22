@@ -28,5 +28,18 @@ body {
   object-position: center center;
 }
 
+.container {
+  max-width: 800px;
+  margin: auto;
+  &__el {
+    width: 200px;
+    height: 120px;
+    background-color: red;
+    margin:12px;
+    &--bgGreen {
+      background-color:green;
+    }
+  }
+}
 
 
