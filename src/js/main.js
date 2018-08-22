@@ -1,37 +1,38 @@
 // Plain Javascript
-var toggleAll = document.querySelectorAll('.mainConversion__toggled');
+{
+    const toggleAll = document.querySelectorAll('.mainConversion__toggled');
 
-document.querySelectorAll('.mainConversion').forEach(element => {
-    var button = element.querySelector('button');
-    var toggle = element.querySelector('.mainConversion__toggled');
+    document.querySelectorAll('.mainConversion').forEach(element => {
+        const button = element.querySelector('button');
+        const toggle = element.querySelector('.mainConversion__toggled');
 
-    button.addEventListener('click', () => {
-        toggleAll.forEach(info => {
-            if(toggle !== info){
-                info.classList.add('off');
-            }
-        });  
-        toggle.classList.toggle('off');
-    });
-});
+        button.addEventListener('click', () => {
+            toggleAll.forEach(info => {
+                if(toggle !== info){
+                    info.classList.add('off');
+                }
+            });  
+            toggle.classList.toggle('off');
+        });
+    });  
+}
 
-
-// // Plain Javascript attempt to change color
-// var toggleAll = document.querySelectorAll('.mainConversion__toggled');
+// Plain Javascript attempt to change color
+// const toggleAll = document.querySelectorAll('.mainConversion__toggled');
 
 // document.querySelectorAll('.mainConversion').forEach(element => {
-//     var button = element.querySelector('button');
-//     var toggle = element.querySelector('.mainConversion__toggled');
-//     var toggleBefore = element.querySelector('.toggled__info');
-
+//     const button = element.querySelector('button');
+//     const toggle = element.querySelector('.mainConversion__toggled');
+//     const toggleBefore = element.querySelector('.toggled__info');
+ 
 //     button.addEventListener('click', () => {
-//         let color = window.getComputedStyle(button, null).getPropertyValue("background-color");
+//         const color = window.getComputedStyle(button, null).getPropertyValue("background-color");
 //         toggleAll.forEach(info => {
 //             if(toggle !== info){
 //                 info.classList.add('off');
 //             }
 //         });  
-//         var pseudoElementContent = window.getComputedStyle(toggleBefore, ':before')
+//         const pseudoElementContent = window.getComputedStyle(toggleBefore, ':before')
 //   .getPropertyValue('border-bottom');
 //   console.log(pseudoElementContent);
 //         toggle.style.backgroundColor = color;
