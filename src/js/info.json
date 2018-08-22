@@ -1,15 +1,16 @@
-{
-    "font": {
-    "Lato": {
-        "family": "Lato",
-        "weight": "300",
-        "size": "16px",
-        "use": "text"
-    },
-    "Montserrat": {
-        "family": "Montserrat",
-        "weight": "700",
-        "size": "32px",
-        "use": "title"
-    }
-}}    
+[{
+    "font": [
+        {
+            "Lato":{
+                "name": "Lato",
+                "size": "16px"
+            }
+        },
+        {
+            "Montserrat":{
+                "name": "Montserrat",
+                "size": "48px"
+            }
+        }
+    ]
+}]

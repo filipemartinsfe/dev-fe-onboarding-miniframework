@@ -54,39 +54,40 @@
     grid-auto-flow: dense;
     grid-gap: auto;
     align-items: center;
+
+    min-height: 0;
+    max-height: 0;
+    opacity: 0;
+    transition: all .30s linear, opacity .45s ease-in-out;
   }
 
-  .toggled {
-    min-height: 280px;
-    max-height: 280px;
-    background-color: #303c54;
-    transition: all .30s linear, opacity .45s ease-in-out;
-    &__info {
-      position: relative;
-      height: 100%;
-      padding: 24px 0;
-      color: #fff;
+  &--toggled {
+    .mainConversion__toggled {
+      min-height: 280px;
+      max-height: 280px;
+      background-color: #303c54;
+      opacity:1;
+      .mainConversion__info {
+        position: relative;
+        height: 100%;
+        padding: 24px 0;
+        color: #fff;
 
-      grid-column: 3/11;
-      &:before {
-        position: absolute;
-        top: -20px;
-        left: 0;
-        width: 0;
-        height: 0;
-        content: '';
-        border-right: 20px solid transparent;
-        border-bottom: 20px solid #303c54;
-        border-left: 20px solid transparent;
+        grid-column: 3/11;
+        &:before {
+          position: absolute;
+          top: -20px;
+          left: 0;
+          width: 0;
+          height: 0;
+          content: '';
+          border-right: 20px solid transparent;
+          border-bottom: 20px solid #303c54;
+          border-left: 20px solid transparent;
+        }
       }
     }
-    &.off {
-      min-height: 0;
-      max-height: 0;
-      opacity: 0;
-    }
   }
-
 
   // mainConversion__title
   &__title {
