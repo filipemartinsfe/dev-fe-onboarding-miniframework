@@ -7,15 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale = 1.0, maximum-scale=1.0, user-scalable=no" />
     <title>title</title>
     <link rel="stylesheet" href="css/style.css">
+    <script src="https://unpkg.com/redux@latest/dist/redux.min.js"></script>
+
 </head>
 
 <body>
-
-
-        <div class="container">
-                <div class="container__el"></div>
-                <div class="container__el"></div>
-            </div>
             
     <!-- 1st mainConversion mainConversion--toggled -->
     <div class="mainConversion" id="mainC1">
@@ -27,7 +23,7 @@
             magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
             consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
             Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            <button class="mainConversion__cta" type="button"> Link Button </button>
+            <button class="mainConversion__cta" type="button" onclick="clickOne()"> Link Button </button>
         </div>
 
         <!-- image column -->
@@ -52,7 +48,32 @@
             magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
             consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
             Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-            <button class="mainConversion__cta" type="button"> Link Button </button>
+            <button class="mainConversion__cta" type="button" onclick="clickTwo()"> Link Button </button>
+        </div>
+
+        <!-- image column -->
+        <div class="mainConversion__image">
+            <img class="imgFullWidth" src="https://wallpapers.wallhaven.cc/wallpapers/full/wallhaven-682481.jpg" alt="">
+        </div>
+        <!-- Toggled Content -->
+        <div class="mainConversion__toggled" id="howBig2">
+            <div class="mainConversion__info">
+                Contact Us
+            </div>
+        </div>
+    </div>
+
+    <!-- 3rd mainConversion -->
+    <div class="mainConversion" id="mainC3">
+
+        <!-- content column  -->
+        <div class="mainConversion__content">
+            <h1 class="mainConversion__title">A wonderful Serenity has taken possession</h1>
+            <p class="mainConversion__text">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+            magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+            <button class="mainConversion__cta" type="button" onclick="clickThree()"> Link Button </button>
         </div>
 
         <!-- image column -->
@@ -71,6 +92,7 @@
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="js/main.js"></script>
+    <script src="js/reducer.js"></script>
 </body>
 
 </html>
